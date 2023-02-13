@@ -14,9 +14,8 @@ import com.vladimirorlov9.basketball_test.R
 import com.vladimirorlov9.basketball_test.domain.model.LiveMatch
 import java.text.SimpleDateFormat
 
-class LiveScoreListAdapter(
-    private val onClickEvent: (Int) -> Unit
-) : ListAdapter<LiveMatch, LiveScoreListAdapter.LiveScoreViewHolder>(DiffCallback()) {
+class LiveScoreListAdapter :
+    ListAdapter<LiveMatch, LiveScoreListAdapter.LiveScoreViewHolder>(DiffCallback()) {
 
     inner class LiveScoreViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -49,10 +48,6 @@ class LiveScoreListAdapter(
                 .load(currentElement.eventAwayTeamLogo)
                 .error(R.drawable.baseline_image_not_supported_24)
                 .into(awayTeamLogo)
-
-            itemView.setOnClickListener {
-                onClickEvent(position)
-            }
         }
 
     }

@@ -3,9 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/liveScoreFragment">
+    app:startDestination="@id/onboardingFragment">
     <fragment
         android:id="@+id/liveScoreFragment"
         android:name="com.vladimirorlov9.basketball_test.ui.livescore.LiveScoreFragment"
-        tools:layout="@layout/fragment_livescore" />
+        tools:layout="@layout/fragment_livescore" >
+        <action
+            android:id="@+id/action_liveScoreFragment_to_webFragment"
+            app:destination="@id/webFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/webFragment"
+        android:name="com.vladimirorlov9.basketball_test.ui.web.WebFragment"
+        android:label="fragment_web"
+        tools:layout="@layout/fragment_web" />
+    <fragment
+        android:id="@+id/onboardingFragment"
+        android:name="com.vladimirorlov9.basketball_test.ui.onboarding.OnboardingFragment"
+        android:label="fragment_onboarding"
+        tools:layout="@layout/fragment_onboarding" >
+        <action
+            android:id="@+id/action_onboardingFragment_to_liveScoreFragment"
+            app:destination="@id/liveScoreFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/nav_graph" />
+    </fragment>
 </navigation>

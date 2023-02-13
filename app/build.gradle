@@ -3,6 +3,10 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
+def apikeyPropertiesFile = rootProject.file("apikey.properties")
+def apikeyProperties = new Properties()
+apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
+
 android {
     namespace 'com.vladimirorlov9.basketball_test'
     compileSdk 33
@@ -15,6 +19,8 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "ONESIGNAL_APP_ID", apikeyProperties['ONESIGNAL_APP_ID'])
     }
 
     buildTypes {
@@ -63,4 +69,8 @@ dependencies {
     def retrofit2_version = '2.9.0'
     implementation "com.squareup.retrofit2:retrofit:$retrofit2_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit2_version"
+
+    // OneSignal
+    def onesignal_version = '4.99.99'
+    implementation 'com.onesignal:OneSignal:[4.0.0, 4.99.99]'
 }

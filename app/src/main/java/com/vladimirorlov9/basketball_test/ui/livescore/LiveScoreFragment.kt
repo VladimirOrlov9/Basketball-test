@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.vladimirorlov9.basketball_test.R
 import com.vladimirorlov9.basketball_test.databinding.FragmentLivescoreBinding
 import com.vladimirorlov9.basketball_test.ui.BasketballViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -43,6 +45,10 @@ class LiveScoreFragment : Fragment() {
 
         setupRecyclerView()
         setupObservers()
+
+        binding.webFab.setOnClickListener {
+            findNavController().navigate(R.id.action_liveScoreFragment_to_webFragment)
+        }
     }
 
     private fun setupObservers() {
@@ -52,9 +58,7 @@ class LiveScoreFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        recyclerAdapter = LiveScoreListAdapter {
-            // TODO add click event
-        }
+        recyclerAdapter = LiveScoreListAdapter()
         binding.recycler.layoutManager = LinearLayoutManager(
             requireContext(),
             LinearLayoutManager.VERTICAL,
@@ -63,4 +67,8 @@ class LiveScoreFragment : Fragment() {
         binding.recycler.adapter = recyclerAdapter
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }
