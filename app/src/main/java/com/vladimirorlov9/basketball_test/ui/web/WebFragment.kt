@@ -35,4 +35,9 @@ class WebFragment : Fragment() {
     private fun setupWebView() {
         binding.webView.loadUrl("https://basketballireland.tv/home")
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }

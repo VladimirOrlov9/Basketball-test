@@ -42,6 +42,7 @@ class LiveScoreFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.swipeRefresh.isRefreshing = true
 
         setupRecyclerView()
         setupObservers()
@@ -54,6 +55,7 @@ class LiveScoreFragment : Fragment() {
     private fun setupObservers() {
         vm.liveMatchesLD.observe(viewLifecycleOwner) {
             recyclerAdapter.submitList(it)
+            binding.swipeRefresh.isRefreshing = false
         }
     }
 
@@ -65,6 +67,10 @@ class LiveScoreFragment : Fragment() {
             false
         )
         binding.recycler.adapter = recyclerAdapter
+
+        binding.swipeRefresh.setOnRefreshListener {
+            vm.getLiveMatches()
+        }
     }
 
     override fun onDestroyView() {

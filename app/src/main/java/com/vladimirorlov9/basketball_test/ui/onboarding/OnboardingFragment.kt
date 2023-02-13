@@ -102,4 +102,9 @@ class OnboardingFragment : Fragment() {
             apply()
         }
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }
