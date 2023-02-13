@@ -13,9 +13,8 @@ import com.vladimirorlov9.basketball_test.ui.BasketballViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
- * A simple [Fragment] subclass.
- * Use the [LiveScoreFragment.newInstance] factory method to
- * create an instance of this fragment.
+ * Fragment to display actual Live Matches,
+ * received from API
  */
 class LiveScoreFragment : Fragment() {
 

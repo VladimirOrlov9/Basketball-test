@@ -27,7 +27,7 @@
                 android:layout_width="44dp"
                 android:layout_height="44dp"
                 android:layout_gravity="center"
-                android:contentDescription="TODO" />
+                android:contentDescription="@string/home_team_logo" />
 
             <TextView
                 android:id="@+id/home_team_name"
@@ -86,7 +86,7 @@
                 android:layout_width="44dp"
                 android:layout_height="44dp"
                 android:layout_gravity="center"
-                android:contentDescription="TODO" />
+                android:contentDescription="@string/away_team_logo" />
 
             <TextView
                 android:id="@+id/away_team_name"

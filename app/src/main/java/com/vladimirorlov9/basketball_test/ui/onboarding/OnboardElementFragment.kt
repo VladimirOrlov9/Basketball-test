@@ -9,9 +9,7 @@ import androidx.core.content.res.ResourcesCompat
 import com.vladimirorlov9.basketball_test.databinding.FragmentOnboardElementBinding
 
 /**
- * A simple [Fragment] subclass.
- * Use the [OnboardElementFragment.newInstance] factory method to
- * create an instance of this fragment.
+ * Element Instance for pager
  */
 class OnboardElementFragment : Fragment() {
 

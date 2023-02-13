@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Basketball-test</string>
+    <string name="app_name">Basketball</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -50,4 +50,6 @@
     <string name="open_webview">Open webview</string>
     <string name="skip">Skip</string>
     <string name="get_started">Get started</string>
+    <string name="home_team_logo">Home team logo</string>
+    <string name="away_team_logo">Away team logo</string>
 </resources>

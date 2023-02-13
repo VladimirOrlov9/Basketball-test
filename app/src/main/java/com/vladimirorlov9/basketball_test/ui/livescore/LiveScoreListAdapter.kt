@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide
 import com.vladimirorlov9.basketball_test.R
 import com.vladimirorlov9.basketball_test.domain.model.LiveMatch
 import java.text.SimpleDateFormat
+import java.util.*
 
 class LiveScoreListAdapter :
     ListAdapter<LiveMatch, LiveScoreListAdapter.LiveScoreViewHolder>(DiffCallback()) {
@@ -34,20 +35,24 @@ class LiveScoreListAdapter :
             awayTeamName.text = currentElement.eventAwayTeam
             score.text = currentElement.eventFinalResult
 
-            val date = SimpleDateFormat("yyyy-MM-dd").parse(currentElement.eventDate)
-            val dateStr = DateFormat.format("dd.MM.yyyy", date)
-            eventDate.text = dateStr
+            eventDate.text = parseDate(currentElement.eventDate)
             eventTime.text = currentElement.eventTime
 
             Glide.with(itemView)
                 .load(currentElement.eventHomeTeamLogo)
-                .error(R.drawable.baseline_image_not_supported_24)
+                .error(R.drawable.outline_image_not_supported_24)
                 .into(homeTeamLogo)
 
             Glide.with(itemView)
                 .load(currentElement.eventAwayTeamLogo)
-                .error(R.drawable.baseline_image_not_supported_24)
+                .error(R.drawable.outline_image_not_supported_24)
                 .into(awayTeamLogo)
+        }
+
+        private fun parseDate(dateBefore: String): String {
+            val date = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(dateBefore)
+            val dateFormatted = DateFormat.format("dd.MM.yyyy", date)
+            return dateFormatted.toString()
         }
 
     }

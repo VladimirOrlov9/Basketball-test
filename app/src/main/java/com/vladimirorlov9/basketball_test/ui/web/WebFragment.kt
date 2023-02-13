@@ -8,9 +8,7 @@ import android.view.ViewGroup
 import com.vladimirorlov9.basketball_test.databinding.FragmentWebBinding
 
 /**
- * A simple [Fragment] subclass.
- * Use the [WebFragment.newInstance] factory method to
- * create an instance of this fragment.
+ * Fragment to display WebView element
  */
 class WebFragment : Fragment() {
 

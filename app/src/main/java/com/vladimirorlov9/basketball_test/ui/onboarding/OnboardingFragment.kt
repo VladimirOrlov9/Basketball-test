@@ -13,9 +13,7 @@ import com.vladimirorlov9.basketball_test.R
 import com.vladimirorlov9.basketball_test.databinding.FragmentOnboardingBinding
 
 /**
- * A simple [Fragment] subclass.
- * Use the [OnboardingFragment.newInstance] factory method to
- * create an instance of this fragment.
+ * Fragment with onboarding info
  */
 
 const val SPECIFICATION_ONBOARDING = "onboarding"

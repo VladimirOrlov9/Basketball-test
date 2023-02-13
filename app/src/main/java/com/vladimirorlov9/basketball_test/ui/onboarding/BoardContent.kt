@@ -8,6 +8,9 @@ data class BoardContent (
     val imageResId: Int
 )
 
+/**
+ * Content for boards on Onboarding screen
+ */
 val boardsContent = listOf(
     BoardContent(
         label = "Live Matches",
